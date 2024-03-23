@@ -5,31 +5,40 @@
   <title>Pet - Register</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+  .container {
+      margin-top: 50px;
+  }
+</style>
 <body>
 
 <div class="container">
 
   <h1>Register</h1>
 
-  <form action="@{/register}" method="post">
+  <p style="color:green" th:text="${msg}"></p>
+
+  <p style="color:red" th:text="${errorMsg}"></p>
+
+  <form th:action="@{/register}" method="post" th:object="${registerDetail}">
     <div class="mb-3">
       <label for="username" class="form-label">Username:</label>
-      <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+      <input type="text" th:field="*{userName}" class="form-control" id="username" name="username" placeholder="Enter your username" required>
     </div>
 
     <div class="mb-3">
       <label for="email" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+      <input type="email" th:field="*{email}" class="form-control" id="email" name="email" placeholder="Enter your email" required>
     </div>
 
     <div class="mb-3">
       <label for="role" class="form-label">Role:</label>
-      <input type="text" class="form-control" id="role" name="role" placeholder="Enter your role">
+      <input type="text" th:field="*{role}" class="form-control" id="role" name="role" placeholder="Enter your role" required>
     </div>
 
     <div class="mb-3">
       <label for="password" class="form-label">Password:</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+      <input type="password" th:field="*{password}" class="form-control" id="password" name="password" placeholder="Enter your password" required>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

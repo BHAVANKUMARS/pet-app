@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 public class Pet {
 
     private Long id;
+
     private String imagePath;
+
     private String name;
+
     private int age;
 
     public Pet(Long id, String name, int age,String imagePath) {
